@@ -1,11 +1,24 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
+import Head from "next/head";
+import Image from "next/image";
+import { Inter } from "next/font/google";
+import styles from "@/styles/Home.module.css";
 
-const inter = Inter({ subsets: ['latin'] })
+import { ConnectButton } from "@rainbow-me/rainbowkit";
+import { useAccount } from "wagmi";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  // Check if the user's wallet is connected, and it's address using Wagmi's hooks.
+  const { address, isConnected } = useAccount();
+
+  if (!isConnected)
+    return (
+      <div>
+        <ConnectButton />
+      </div>
+    );
+
   return (
     <>
       <Head>
@@ -26,7 +39,7 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              By{' '}
+              By{" "}
               <Image
                 src="/vercel.svg"
                 alt="Vercel Logo"
@@ -110,5 +123,5 @@ export default function Home() {
         </div>
       </main>
     </>
-  )
+  );
 }
