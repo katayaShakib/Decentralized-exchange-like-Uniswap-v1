@@ -14,8 +14,18 @@ export default function Home() {
 
   if (!isConnected)
     return (
-      <div>
-        <ConnectButton />
+      <div className={inter.className}>
+        <Head>
+          <title>CryptoDevs DEX</title>
+          <meta name="description" content="CryptoDevs DEX" />
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        <div className={styles.connect}>
+          <div className={styles.connectBtn}>
+            <ConnectButton />
+          </div>
+          <h1>Welcome to Crypto Devs DEX!</h1>
+        </div>
       </div>
     );
 
