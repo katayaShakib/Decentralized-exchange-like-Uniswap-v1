@@ -1,6 +1,7 @@
 import { exchangeAddress, exchangeAbi } from "@/constants";
 import Head from "next/head";
 import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 
@@ -13,6 +14,9 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Home() {
   // Check if the user's wallet is connected, and it's address using Wagmi's hooks.
   const { address, isConnected } = useAccount();
+
+  // State variable to know if the component has been mounted yet or not
+  const [isMounted, setIsMounted] = useState(false);
 
   // State variable to know if the component has been mounted yet or not
   const [isMounted, setIsMounted] = useState(false);
@@ -53,6 +57,7 @@ export default function Home() {
           </div>
           <h1>Welcome to Crypto Devs DEX!</h1>
           {process.env.projectId}
+          {process.env.projectId}
         </div>
       </div>
     );
@@ -65,6 +70,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.main}>
+        hello Your balance: {balanceOfUser.data.toString()}
+        Total Supply: {totalSupply.data.toString()}
         hello Your balance: {balanceOfUser.data.toString()}
         Total Supply: {totalSupply.data.toString()}
       </div>
