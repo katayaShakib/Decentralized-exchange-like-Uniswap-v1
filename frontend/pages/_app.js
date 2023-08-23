@@ -9,8 +9,8 @@ import { publicProvider } from "wagmi/providers/public";
 const { chains, publicClient } = configureChains([sepolia], [publicProvider()]);
 
 const { connectors } = getDefaultWallets({
-  appName: "CryptoDevs DAO",
-  projectId: "ADD_YOUR_PROJECT_ID_HERE",
+  appName: "CryptoDevs DEX",
+  projectId: "144ddc9ad47f68ccf4b94a231245f654",
   chains,
 });
 
