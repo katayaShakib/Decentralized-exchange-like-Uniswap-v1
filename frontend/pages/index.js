@@ -65,8 +65,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.main}>
-        Your balance: {balanceOfUser.data.toString()}
-        Total Supply: {totalSupply.data.toString()}
+        Your balance: {balanceOfUser ? balanceOfUser.data.toString() : "..."}
+        Total Supply: {totalSupply ? totalSupply.data.toString() : "..."}
       </div>
     </div>
   );
